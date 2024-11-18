@@ -1,14 +1,18 @@
-import HeaderSection from '../components/HeaderSection'
-import ButtonHover from '../components/ButtonHover'
+import HeaderSection from "../components/HeaderSection";
+import HeroBanner from "../components/HeroBanner";
+
 
 const HomePage = () => {
-    return (
-        <div>
-            <HeaderSection />
-                <h2 className='text-5xl'>Home Page</h2>
-            <ButtonHover />
-        </div>
-    );
+  return (
+    <div>
+      <HeaderSection />
+
+      {/* Banner Section */}
+      <HeroBanner />
+
+      {/* Dynamic Cards Section */}
+    </div>
+  );
 };
 
 export default HomePage;

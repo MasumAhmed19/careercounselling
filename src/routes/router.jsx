@@ -9,8 +9,8 @@ import ServicePage from "../pages/ServicePage";
 const router = createBrowserRouter([
     {
         path:'/',
-        element:<HomePage />
-
+        element:<HomePage />,
+        
     }, 
     {
         path:'/blog',

@@ -16,3 +16,8 @@
 
 
 //color: #CBFF54
+
+slider img
+https://i.ibb.co.com/9bLQM7f/sliderimg1.png
+https://i.ibb.co.com/gFC0PJB/sliderimg2.png
+https://i.ibb.co.com/pXM5tNk/sliderimg3.png

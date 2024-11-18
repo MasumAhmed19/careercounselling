@@ -13,7 +13,7 @@ const HeaderSection = () => {
 
 
   return (
-    <div className="py-3 bg-[#17312F]">
+    <div className="py-3 relative z-20">
       <div className="navbar container mx-auto text-white">
         <div className="navbar-start">
           <div className="dropdown">
@@ -50,7 +50,7 @@ const HeaderSection = () => {
           <Link to='/' className="uppercase text-xl font-semibold tracking-tighter"><span className="tp1">Career</span>Counseling</Link>
         </div>
         <div className="navbar-center hidden lg:flex">
-          <ul className="menu menu-horizontal px-1 backdrop-blur-md linktext">
+          <ul className="menu menu-horizontal px-1 backdrop-blur-sm linktext">
             {
               link
             }

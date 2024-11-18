@@ -4,12 +4,10 @@
 @tailwind components;
 @tailwind utilities;
 
+
 body {
     font-family: "Noto Sans", sans-serif;
 }
-
-
-
 
 
 /* link text */
@@ -21,4 +19,11 @@ body {
 /* text color */
 .tp1 {
     @apply text-[#CBFF54]
+}
+
+
+/* paragraph text */
+
+.dt1 {
+    @apply text-lg text-[#b2bbb7]
 }
