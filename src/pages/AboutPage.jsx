@@ -1,8 +1,13 @@
+import HeaderSection from "../components/HeaderSection";
+import TransFromText from "../components/TransFromText";
 
 const AboutPage = () => {
     return (
         <div>
-            <h2 className="text-5xl">About Page</h2>
+            <HeaderSection></HeaderSection>
+            <h2 className="text-xl">
+                <TransFromText>About us </TransFromText>
+            </h2>
         </div>
     );
 };
