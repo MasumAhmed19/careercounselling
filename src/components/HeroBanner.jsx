@@ -1,18 +1,20 @@
-import heroImg from "../assets/herobg2.jpg";
+import heroImg from "../assets/herobg2.webp";
 import ButtonHover from "../components/ButtonHover";
 import ImgSlider from "./ImgSlider";
 
 const HeroBanner = () => {
   return (
     <section
-      className="min-h-screen flex items-center justify-center bg-cover bg-center bg-no-repeat -mt-[100px] "
-      style={{ backgroundImage: `url(${heroImg}) ` }}
+      className="min-h-screen flex items-center justify-center bg-cover bg-center bg-no-repeat"
+      style={{
+        backgroundImage: `url(${heroImg})`
+      }}
     >
       {/* Overlay */}
-      <div className="absolute inset-0 bg-black opacity-50"></div>
+      <div className="absolute inset-0 bg-black opacity-20 "></div>
 
-      <div className=" text-white container mx-auto relative p-5">
-        <div className="grid grid-cols-1 lg:grid-cols-2  gap-10 items-center py-[150px]">
+      <div className=" text-white container mx-auto relative  p-5 z-10">
+        <div className="grid grid-cols-1 lg:grid-cols-2  gap-10 items-center py-[120px]">
             {/* content */}
           <div className="order-2 md:order-1 space-y-3 flex flex-col items-start cursor-text">
 

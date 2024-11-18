@@ -13,7 +13,7 @@ const HeaderSection = () => {
 
 
   return (
-    <div className="py-3 relative z-20">
+    <div className="py-3 relative z-20 -mb-[95px]">
       <div className="navbar container mx-auto text-white">
         <div className="navbar-start">
           <div className="dropdown">
