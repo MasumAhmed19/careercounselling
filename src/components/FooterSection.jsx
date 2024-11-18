@@ -19,7 +19,7 @@ const FooterSection = () => {
                         </h2>
                         <p className="dt1">Apply to be a part of our January cohort.</p>
                     </div>
-                    <div className="">
+                    <div className="w-[290px]">
                         <ButtonHover className="">Contact Now</ButtonHover>
                     </div>
                 </div>
@@ -38,7 +38,7 @@ const FooterSection = () => {
                     </div>
                     
                     <div className="">
-                        <h2 className="linktext">Privacy & Polocy</h2>
+                        <h2 className="linktext">Privacy & Policy</h2>
                     </div>
                 </div>
             </div>

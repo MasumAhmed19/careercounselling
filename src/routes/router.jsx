@@ -1,37 +1,47 @@
-import { createBrowserRouter } from "react-router-dom";
+import { createBrowserRouter, Navigate } from "react-router-dom";
 import HomePage from "../pages/HomePage";
 import ErrorPage from "../pages/ErrorPage";
 import AboutPage from "../pages/AboutPage";
 import BlogPage from "../pages/BlogPage";
 import ContactPage from "../pages/ContactPage";
 import ServicePage from "../pages/ServicePage";
+import CategoryCounselings from "../pages/CategoryCounselings";
 
 const router = createBrowserRouter([
     {
-        path:'/',
-        element:<HomePage />,
-        
-    }, 
-    {
-        path:'/blog',
-        element:<BlogPage />
+        path: '/',
+        element: <HomePage />,
     },
     {
-        path:'/about',
-        element:<AboutPage />
+        path: '/blog',
+        element: <BlogPage />,
     },
     {
-        path:'/service',
-        element:<ServicePage />        
+        path: '/about',
+        element: <AboutPage />,
     },
     {
-        path:'/contact',
-        element:<ContactPage />        
+        path: '/service',
+        element: <ServicePage />,
+        children: [
+            {
+                path: '', // Matches the parent route `/service`
+                element: <Navigate to="/service" />, // Optional: Redirect logic here
+            },
+            {
+                path: ':catName', // Relative path for `/service/:catName`
+                element: <CategoryCounselings />,
+            },
+        ],
+    },
+    {
+        path: '/contact',
+        element: <ContactPage />,
     },
     {
         path: '*',
-        element: <ErrorPage />
+        element: <ErrorPage />,
     },
-])
+]);
 
 export default router;

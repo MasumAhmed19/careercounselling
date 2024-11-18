@@ -1,6 +1,7 @@
 import HeaderSection from "../components/HeaderSection";
 import HeroBanner from "../components/HeroBanner";
 import FooterSection from "../components/FooterSection"
+import HowItWorksSection from "../sections/HowItWorksSection";
 
 
 const HomePage = () => {
@@ -14,7 +15,8 @@ const HomePage = () => {
         {/* Banner Section */}
         <HeroBanner />
 
-        {/* Dynamic Cards Section */}
+        {/* Service Category */}
+        <HowItWorksSection />
 
         {/* Footer */}
         <FooterSection />
