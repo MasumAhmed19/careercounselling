@@ -18,7 +18,7 @@ const CategoryCounselings = () => {
     }, [catName, serviceData]);
 
     return (
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1  lg:grid-cols-3 gap-6">
             {tempData.length > 0 ? (
                 tempData.map(el => <Card key={el.id} service={el} />) // Use a unique key
             ) : (

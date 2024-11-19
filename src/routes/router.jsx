@@ -6,6 +6,7 @@ import BlogPage from "../pages/BlogPage";
 import ContactPage from "../pages/ContactPage";
 import ServicePage from "../pages/ServicePage";
 import CategoryCounselings from "../pages/CategoryCounselings";
+import DetailPage from "../pages/DetailPage";
 
 const router = createBrowserRouter([
     {
@@ -33,6 +34,9 @@ const router = createBrowserRouter([
                 element: <CategoryCounselings />,
             },
         ],
+    },{
+        path:'/detail/:detID',
+        element: <DetailPage />
     },
     {
         path: '/contact',
