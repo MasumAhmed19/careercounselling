@@ -26,10 +26,10 @@ const router = createBrowserRouter([
         children: [
             {
                 path: '', // Matches the parent route `/service`
-                element: <Navigate to="/service" />, // Optional: Redirect logic here
+                element: <Navigate to="/service/online" />, // Optional: Redirect logic here
             },
             {
-                path: ':catName', // Relative path for `/service/:catName`
+                path: '/service/:catName', // Relative path for `/service/:catName`
                 element: <CategoryCounselings />,
             },
         ],

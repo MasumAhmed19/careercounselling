@@ -1,3 +1,4 @@
+import BannerSection from "../components/BannerSection";
 import HeaderSection from "../components/HeaderSection";
 import TransFromText from "../components/TransFromText";
 
@@ -5,9 +6,8 @@ const AboutPage = () => {
     return (
         <div>
             <HeaderSection></HeaderSection>
-            <h2 className="text-xl">
-                <TransFromText>About us </TransFromText>
-            </h2>
+            <BannerSection t="About"/>
+
         </div>
     );
 };

@@ -1,5 +1,5 @@
 [
-    {
+  {
       "id": 1,
       "image": "https://i.ibb.co.com/30C6Sxv/01.webp",
       "serviceName": "Job Market Insights in Bangladesh",
@@ -11,9 +11,11 @@
       "time": "7:00 PM - 8:00 PM",
       "counselor": "Dr. Rahman Ali",
       "rating": 4.8,
-      "reviews": 110
-    },
-    {
+      "reviews": 110,
+      "isFavourite": false,
+      "isJoin": false
+  },
+  {
       "id": 2,
       "image": "https://i.ibb.co.com/HGhLDhh/02.webp",
       "serviceName": "Overseas Career Opportunities",
@@ -25,9 +27,11 @@
       "time": "6:00 PM - 7:30 PM",
       "counselor": "Dr. Tanvir Hossain",
       "rating": 4.7,
-      "reviews": 85
-    },
-    {
+      "reviews": 85,
+      "isFavourite": false,
+      "isJoin": false
+  },
+  {
       "id": 3,
       "image": "https://i.ibb.co.com/n0vFt5G/03.webp",
       "serviceName": "Freelancing as a Career",
@@ -39,9 +43,11 @@
       "time": "3:00 PM - 5:00 PM",
       "counselor": "Ms. Shima Akter",
       "rating": 4.9,
-      "reviews": 120
-    },
-    {
+      "reviews": 120,
+      "isFavourite": false,
+      "isJoin": false
+  },
+  {
       "id": 4,
       "image": "https://i.ibb.co.com/T2SxRw3/04.webp",
       "serviceName": "IT Career Development",
@@ -53,9 +59,11 @@
       "time": "2:00 PM - 5:00 PM",
       "counselor": "Engr. Saiful Islam",
       "rating": 4.8,
-      "reviews": 150
-    },
-    {
+      "reviews": 150,
+      "isFavourite": false,
+      "isJoin": false
+  },
+  {
       "id": 5,
       "image": "https://i.ibb.co.com/BgWJtbx/05.webp",
       "serviceName": "Government Job Preparation",
@@ -67,11 +75,13 @@
       "time": "5:00 PM - 7:00 PM",
       "counselor": "Dr. Arman Chowdhury",
       "rating": 4.6,
-      "reviews": 140
-    },
-    {
+      "reviews": 140,
+      "isFavourite": false,
+      "isJoin": false
+  },
+  {
       "id": 6,
-      "image": "https://i.ibb.co/xyz123/scholarship.jpg",
+      "image": "https://i.ibb.co.com/4jWpH8m/06.webp",
       "serviceName": "Scholarship Guidance for Higher Studies",
       "category": "Online",
       "description": "Learn about scholarships for undergraduate and postgraduate studies abroad.",
@@ -81,9 +91,11 @@
       "time": "4:00 PM - 5:30 PM",
       "counselor": "Ms. Nusrat Jahan",
       "rating": 4.7,
-      "reviews": 90
-    },
-    {
+      "reviews": 90,
+      "isFavourite": false,
+      "isJoin": false
+  },
+  {
       "id": 7,
       "image": "https://i.ibb.co.com/4jWpH8m/06.webp",
       "serviceName": "Soft Skills Training",
@@ -95,9 +107,11 @@
       "time": "10:00 AM - 12:00 PM",
       "counselor": "Mr. Abul Hasan",
       "rating": 4.8,
-      "reviews": 60
-    },
-    {
+      "reviews": 60,
+      "isFavourite": false,
+      "isJoin": false
+  },
+  {
       "id": 8,
       "image": "https://i.ibb.co.com/KWB9D5F/8.webp",
       "serviceName": "Entrepreneurship & SME Development",
@@ -109,9 +123,11 @@
       "time": "3:00 PM - 5:30 PM",
       "counselor": "Engr. Mizanur Rahman",
       "rating": 4.5,
-      "reviews": 80
-    },
-    {
+      "reviews": 80,
+      "isFavourite": false,
+      "isJoin": false
+  },
+  {
       "id": 9,
       "image": "https://i.ibb.co.com/jVQjRYQ/9.webp",
       "serviceName": "Public Speaking Workshop",
@@ -123,9 +139,11 @@
       "time": "11:00 AM - 12:30 PM",
       "counselor": "Dr. Fahim Ahmed",
       "rating": 4.9,
-      "reviews": 105
-    },
-    {
+      "reviews": 105,
+      "isFavourite": false,
+      "isJoin": false
+  },
+  {
       "id": 10,
       "image": "https://i.ibb.co.com/N23x5Ph/10.webp",
       "serviceName": "Creative Writing for Career Growth",
@@ -137,6 +155,8 @@
       "time": "7:00 PM - 9:00 PM",
       "counselor": "Ms. Taslima Yasmin",
       "rating": 4.7,
-      "reviews": 65
-    }
-  ]
+      "reviews": 65,
+      "isFavourite": false,
+      "isJoin": false
+  }
+]

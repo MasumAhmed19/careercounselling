@@ -11,8 +11,8 @@ const BannerSection = ({ t }) => {
             
             {/* Content */}
             <div className="relative z-10 flex flex-col gap-4">
-                <div className="text-center flex justify-center">
-                    <p className="linktext text-white duration-300 ease-in backdrop-blur-sm px-2 py-3 rounded-md ">Unlock Your Career Potential</p>
+                <div className="text-center flex items-center justify-center">
+                    <p className="linktext text-center text-white duration-300 ease-in backdrop-blur-sm px-2 py-3 rounded-md ">Unlock Your Career Potential</p>
                 </div>
                 <h2 className="text-4xl md:text-6xl text-white md:w-2/3 text-center mx-auto">{t}</h2>
             </div>
