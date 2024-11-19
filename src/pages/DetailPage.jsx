@@ -4,6 +4,8 @@ import { AuthContext } from "../provider/AuthProvider";
 import { Link, useParams } from "react-router-dom";
 import FooterSection from "../components/FooterSection";
 import ButtonHover from "../components/ButtonHover";
+import { SlCalender } from "react-icons/sl";
+import { FaRegClock } from "react-icons/fa";
 
 const DetailPage = () => {
   const { serviceData } = useContext(AuthContext);
@@ -19,108 +21,111 @@ const DetailPage = () => {
   const service = temp[0];
 
   return (
-    <div className="bg-[#17312F]">
+    <div className="bg-[#17312F] min-h-screen">
       <HeaderSection />
 
       {service && (
-        <section className="container mx-auto mt-[100px] px-4 py-[70px] pb-[120px] text-white m-2">
-          <div className="grid grid-cols-12 gap-10">
+        <section className="container mx-auto px-4 py-16 mt-[100px] md:py-[70px] mb-[100px] text-white">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-10">
             {/* Leftbar */}
-
-            <div className="col-span-12 lg:col-span-8">
+            <div className="lg:col-span-8">
               {/* Content */}
-              <div className=" flex flex-col gap-5 text-white">
-                <h2 className="text-3xl">{service.serviceName}</h2>
-                <div className="flex justify-between items-center">
-                  <div className="flex gap-2 items-center">
+              <div className="flex flex-col gap-5 text-white">
+                <h2 className="text-2xl md:text-3xl font-semibold">
+                  {service.serviceName}
+                </h2>
+                <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 sm:items-center sm:justify-between">
+                  <div className="flex items-center gap-2">
                     <img
-                      className="w-[30px] rounded-full"
-                      src="https://cdn.prod.website-files.com/66e9764759fcb42dca63aa60/66e9790b83b0b3f1db914c6b_pete.png"
-                      alt=""
+                      className="w-[35px] h-[35px] object-cover rounded-full border-2 border-[#CBFF54]"
+                      src="https://i.ibb.co.com/jJmZXB1/IMG-20231025-120729-726.jpg"
+                      alt="Masum Ahmed"
                     />
                     <h5 className="linktext">Masum Ahmed</h5>
                   </div>
-                  <div>
-                    <h5 className="linktext">Aug 16, 2024</h5>
-                  </div>
-                  <div>
-                    <h5 className="linktext">7Min Read</h5>
+                  <div className="flex gap-4 sm:gap-6">
+                    <h5 className="linktext flex items-center gap-2 text-sm">
+                      <SlCalender className="flex-shrink-0" /> Aug 16, 2024
+                    </h5>
+                    <h5 className="linktext flex items-center gap-2 text-sm">
+                      <FaRegClock className="flex-shrink-0" /> 7Min Read
+                    </h5>
                   </div>
                 </div>
               </div>
-              {/* Img */}
-              <div className="overflow-hidden rounded-md mt-5">
+
+              {/* Image */}
+              <div className="mt-6 overflow-hidden rounded-md">
                 <img
                   src={service.image}
                   alt={service.serviceName}
-                  className="w-full h-[300px] lg:h-[500px] object-cover rounded-md mb-3 hover:scale-110 duration-200"
+                  className="w-full h-[300px] lg:h-[500px] object-cover rounded-md transition-transform duration-300 hover:scale-105"
                 />
               </div>
 
               {/* Description */}
-              <div className="mt-6 text-white rounded-md">
-                <h2 className="text-2xl tp1 font-semibold">
+              <div className="mt-8 text-white">
+                <h2 className="text-xl md:text-2xl tp1 font-semibold mb-4">
                   About the Session
                 </h2>
-                <p className="mt-4 dt1">{service.longDes}</p>
+                <p className="dt1 leading-relaxed opacity-90">
+                  {service.longDes}
+                </p>
               </div>
             </div>
 
-            {/* RigthBar */}
-            <div className="col-span-12 lg:col-span-4 mt-24 h-full ">
-              <div className="m-3 flex flex-col gap-8">
-                {/* price */}
-                <div className="bg-[#223B39] flex items-start justify-between p-5 rounded-md border-2 border-[#374E4B] hover:border-[#CBFF54] duration-500">
-                  <div className="flex flex-col">
-                    <span className="uppercase text-[20px] md:text-[25px] tracking-widest">
+            {/* Rightbar */}
+            <div className="lg:col-span-4">
+              <div className="flex flex-col gap-6 mt-5 lg:mt-28">
+                {/* Price Card */}
+                <div className="bg-[#223B39] p-5 rounded-lg border-2 border-[#374E4B] hover:border-[#CBFF54] transition-colors duration-300">
+                  <div className="flex flex-row justify-between gap-4">
+                    <div className="space-y-2 text-sm md:text-base uppercase text-[12px] md:text-[14px] tracking-wider">
+                      <p>
+                        Date: {service.date}
+                      </p>
+                      <p>
+                        Time: {service.time}
+                      </p>
+                      <p>
+                        Duration:{service.duration}
+                      </p>
+                    </div>
+                    <span className="text-xl linktext uppercase md:text-2xl font-semibold tracking-wide">
                       {service.pricing}
                     </span>
-                    <span className="uppercase text-[15px] mt-3">
-                      <p>
-                        <strong>Date:</strong> {service.date}
-                      </p>
-                      <p>
-                        <strong>Time:</strong> {service.time}
-                      </p>
-                    </span>
-                  </div>
-
-                  <div className="flex justify-between items-center">
-                    <span className="uppercase text-[15px]">
-                      Duration: {service.duration}
-                    </span>
                   </div>
                 </div>
 
-                <div className="bg-[#223B39] flex items-start justify-between p-5 rounded-md border-2 border-[#374E4B] hover:border-[#CBFF54] duration-500">
-                  <div className="flex flex-col">
-                    <span className="uppercase text-[20px] md:text-[15px] tracking-widest">
+                {/* Mentor Card */}
+                <div className="bg-[#223B39] p-5 rounded-lg border-2 border-[#374E4B] hover:border-[#CBFF54] transition-colors duration-300">
+                  <div className="flex flex-col gap-4">
+                    <span className="text-lg font-medium linktext">
                       Mentor: {service.counselor}
                     </span>
-                    <span className="uppercase text-[15px] mt-3">
-                      <p>Rating: {service.rating} / 5</p>
-                    </span>
-                  </div>
-
-                  <div className="flex justify-between items-center">
-                    <span className="uppercase text-[15px]">
-                      {service.reviews} Reviews
-                    </span>
+                    <div className="flex justify-between items-center text-sm linktext">
+                      <span>Rating: {service.rating} / 5</span>
+                      <span>{service.reviews} Reviews</span>
+                    </div>
                   </div>
                 </div>
 
+                {/* Action Buttons */}
                 <div className="flex gap-5">
-                  <Link >
-                    <ButtonHover>{service.isJoin ? "Joined" : "Join Now"}</ButtonHover>
+                  <Link>
+                    <ButtonHover>
+                      {service.isJoin ? "Joined" : "Join Now"}
+                    </ButtonHover>
                   </Link>
-                  <Link >
-                    <ButtonHover>{service.isFavourite ? "Favorited" : "Add to Favorites"}</ButtonHover>
+                  <Link>
+                    <ButtonHover>
+                      {service.isFavourite ? "Favorited" : "Add to Favorites"}
+                    </ButtonHover>
                   </Link>
                 </div>
               </div>
             </div>
           </div>
-
         </section>
       )}
 

@@ -28,7 +28,7 @@ const HowItWorksSection = () => {
                             </ul>
                         </div>
                         <div className="mt-4">
-                            <Link>
+                            <Link to='/service/online'>
                                 <ButtonHover>View All</ButtonHover>
                             </Link>
                         </div>
@@ -53,7 +53,7 @@ const HowItWorksSection = () => {
                             </ul>
                         </div>
                         <div className="mt-4">
-                            <Link>
+                            <Link to='/service/offline'>
                                 <ButtonHover>View All</ButtonHover>
                             </Link>
                         </div>
@@ -74,7 +74,7 @@ const HowItWorksSection = () => {
                             </ul>
                         </div>
                         <div className="mt-4">
-                            <Link>
+                            <Link to='/service/group'>
                                 <ButtonHover>View All</ButtonHover>
                             </Link>
                         </div>
