@@ -3,9 +3,11 @@ import ButtonHover from "../components/ButtonHover";
 import CustomNavLink from "../components/CustomNavLink";
 import { AuthContext } from "../provider/AuthProvider";
 import { FcGoogle } from "react-icons/fc";
+import { useNavigate } from "react-router-dom";
 
 const RegistrationPage = () => {
-  const {createNewUser, setUser, loginGoogle} = useContext(AuthContext)
+  const navigate = useNavigate()
+  const {createNewUser, setUser, loginGoogle, updateUserProfile} = useContext(AuthContext)
 
   const handleSubmit = (e)=>{
     e.preventDefault();
@@ -15,13 +17,17 @@ const RegistrationPage = () => {
     const email =  form.email.value
     const photolink = form.photolink.value
     const password = form.password.value
-    console.log(name, email, photolink, password)
 
     createNewUser(email, password)
     .then(res=>{
       const user = res.user
       setUser(user)
-      console.log(user)
+      updateUserProfile({displayName: name, photoURL: photolink })
+      .then(()=>{
+        navigate('/')
+      }).catch(err=>{
+        alert(err)
+      })
     })
     .catch((error) => {
       const errorCode = error.code;
@@ -73,7 +79,7 @@ const RegistrationPage = () => {
               </label>
               <input
                 name="photolink"
-                type="text"
+                type="url"
                 placeholder="photo (web url)"
                 className="input input-bordered"
                 required
@@ -95,7 +101,7 @@ const RegistrationPage = () => {
             </div>
 
             <div className="form-control mt-6">
-              <ButtonHover>Login</ButtonHover>
+              <ButtonHover>Sign Up</ButtonHover>
             </div>
           </form>
 

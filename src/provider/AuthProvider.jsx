@@ -1,6 +1,6 @@
 import { createContext, useEffect, useState } from "react";
 import app from "../firebase/firebase.config";
-import { createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut, GoogleAuthProvider } from "firebase/auth";
+import { createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut, GoogleAuthProvider, updateProfile } from "firebase/auth";
 
 
 export const AuthContext = createContext()
@@ -35,7 +35,11 @@ const AuthProvider = ({children}) => {
             const errorMessage = error.message;
             alert("Google login failed:", errorCode, errorMessage);
           });
-      }; 
+      };
+      
+      const updateUserProfile = (updatedData)=>{
+        return updateProfile(auth.currentUser, updatedData)
+      }
 
     console.log(user)
 
@@ -62,6 +66,7 @@ const AuthProvider = ({children}) => {
         userLogin,
         loginGoogle,
         loading,
+        updateUserProfile,
 
     }
 

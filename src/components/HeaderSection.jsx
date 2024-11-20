@@ -60,12 +60,25 @@ const HeaderSection = () => {
             }
           </ul>
         </div>
+        
         <div className="navbar-end flex gap-4">
-          <div><FaUserAlt className="text-md text-[#BDED4F]" /></div>
-          <h2>
-            {user && user.email}
-          </h2>
+          <div className="flex items-center gap-2">
+            {
+              (user && user?.email) ? 
+              <img src="user?.photoURL" className="w-[30px] h-[30px] rounded-full"  alt="profile image"/>
+              :
+              <FaUserAlt className="text-md text-[#BDED4F]" />
+            }
+            {/* display name */}
+            <h2>
+              {user && user.displayName}
+            </h2>
+          </div>
 
+
+
+
+            {/* login - logout button */}
           {
             user && user?.email ? 
 
