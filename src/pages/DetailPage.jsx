@@ -26,7 +26,7 @@ const DetailPage = () => {
 
       {service && (
         <section className="container mx-auto px-4 py-16 mt-[100px] md:py-[70px] mb-[100px] text-white">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-10">
+          <div className="w-11/12 mx-auto grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-10">
             {/* Leftbar */}
             <div className="lg:col-span-8">
               {/* Content */}

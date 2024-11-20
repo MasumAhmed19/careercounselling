@@ -7,6 +7,9 @@ import ContactPage from "../pages/ContactPage";
 import ServicePage from "../pages/ServicePage";
 import CategoryCounselings from "../pages/CategoryCounselings";
 import DetailPage from "../pages/DetailPage";
+import AuthPage from "../pages/AuthPage";
+import LoginPage from "../pages/LoginPage";
+import RegistrationPage from "../pages/RegistrationPage";
 
 const router = createBrowserRouter([
     {
@@ -27,16 +30,28 @@ const router = createBrowserRouter([
         children: [
             {
                 path: '', // Matches the parent route `/service`
-                element: <Navigate to="/service/online" />, // Optional: Redirect logic here
+                element: <Navigate to="online" />, // Optional: Redirect logic here
             },
             {
-                path: '/service/:catName', // Relative path for `/service/:catName`
+                path: ':catName', // Relative path for `/service/:catName`
                 element: <CategoryCounselings />,
             },
         ],
     },{
         path:'/detail/:detID',
         element: <DetailPage />
+    },{
+        path:'/auth',
+        element:<AuthPage />,
+        children:[
+            {
+                path:'login',
+                element: <LoginPage />
+            },{
+                path:'signup',
+                element: <RegistrationPage />
+            }
+        ],
     },
     {
         path: '/contact',

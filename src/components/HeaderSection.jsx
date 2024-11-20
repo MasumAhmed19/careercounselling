@@ -58,7 +58,7 @@ const HeaderSection = () => {
         </div>
         <div className="navbar-end flex gap-4">
           <div><FaUserAlt className="text-md text-[#BDED4F]" /></div>
-          <Link to='/login' className="linktext bg-[#BDED4F] px-2 py-2 text-black rounded-sm"><TransFromText>Login</TransFromText></Link>
+          <Link to='/auth/login' className="linktext bg-[#BDED4F] px-2 py-2 text-black rounded-sm"><TransFromText>Login</TransFromText></Link>
         </div>
       </div>
     </div>
