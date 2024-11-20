@@ -1,7 +1,7 @@
 import { useContext, useEffect, useState } from "react";
 import HeaderSection from "../components/HeaderSection";
 import { AuthContext } from "../provider/AuthProvider";
-import { Link, useParams } from "react-router-dom";
+import { Link, useParams, NavLink } from "react-router-dom";
 import FooterSection from "../components/FooterSection";
 import ButtonHover from "../components/ButtonHover";
 import { SlCalender } from "react-icons/sl";
@@ -68,9 +68,13 @@ const DetailPage = () => {
                 <h2 className="text-xl md:text-2xl tp1 font-semibold mb-4">
                   About the Session
                 </h2>
-                <p className="dt1 leading-relaxed opacity-90">
+                <p className="dt1 leading-relaxed opacity-90 mb-8">
                   {service.longDes}
                 </p>
+
+                <NavLink to={`/service/${service.category}`} >
+                  <ButtonHover>Back to category</ButtonHover>
+                </NavLink>
               </div>
             </div>
 

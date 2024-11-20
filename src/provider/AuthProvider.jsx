@@ -1,12 +1,44 @@
 import { createContext, useEffect, useState } from "react";
-// firebase
-// Auth
+import app from "../firebase/firebase.config";
+import { createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut, GoogleAuthProvider } from "firebase/auth";
+
 
 export const AuthContext = createContext()
-// auth
+const auth = getAuth(app);
+
 
 const AuthProvider = ({children}) => {
     const [user, setUser] = useState(null)
+    const [loading, setLoading] = useState(true)
+
+    const createNewUser = (email, password)=>{
+        setLoading(true)
+        return createUserWithEmailAndPassword(auth, email, password)
+    }
+
+    const userLogin = (email, password)=>{
+        setLoading(true)
+        return signInWithEmailAndPassword(auth, email, password)
+    }
+
+    const loginGoogle = () => {
+        setLoading(true)
+        const provider = new GoogleAuthProvider();
+        signInWithPopup(auth, provider)
+          .then((result) => {
+            const user = result.user;
+            setUser(user);
+            alert("Google login successful:", user);
+          })
+          .catch((error) => {
+            const errorCode = error.code;
+            const errorMessage = error.message;
+            alert("Google login failed:", errorCode, errorMessage);
+          });
+      }; 
+
+    console.log(user)
+
 
     const [serviceData, setServiceData] = useState(null)
 
@@ -16,13 +48,34 @@ const AuthProvider = ({children}) => {
             .then(data => setServiceData(data))
     }, []);
 
-    console.log(serviceData)
+    const logOut = ()=>{
+        setLoading(true)
+        return signOut(auth)
+    }
 
     const authData = {
         user,
         setUser,
         serviceData,
+        createNewUser,
+        logOut,
+        userLogin,
+        loginGoogle,
+        loading,
+
     }
+
+    // observer
+    useEffect(()=>{
+        const unsubscribe =  onAuthStateChanged(auth, currentUser=>{
+            setUser(currentUser)
+            setLoading(false)
+        });
+
+        return ()=>{
+            unsubscribe()
+        }
+    }, []) 
 
     return (
         <AuthContext.Provider value={authData}>

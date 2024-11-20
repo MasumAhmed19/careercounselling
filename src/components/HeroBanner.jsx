@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import heroImg from "../assets/herobg2.webp";
 import ButtonHover from "../components/ButtonHover";
 import ImgSlider from "./ImgSlider";
@@ -26,6 +27,7 @@ const HeroBanner = () => {
               Personalized counseling to help you achieve your professional
               dreams.
             </p>
+            <Link></Link>
             <ButtonHover className="">Get Started Now</ButtonHover>
           </div>
 

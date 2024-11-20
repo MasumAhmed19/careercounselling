@@ -1,8 +1,12 @@
 import { Link, NavLink } from "react-router-dom";
 import TransFromText from "./TransFromText";
 import { FaUserAlt } from "react-icons/fa";
+import { useContext } from "react";
+import { AuthContext } from "../provider/AuthProvider";
 
 const HeaderSection = () => {
+  const {user, logOut} = useContext(AuthContext)
+
   const link = <>
     <li className="hover:text-[#CBFF54]"><NavLink to='/' className={({isActive})=> isActive? "text-[#CBFF54]":""}><TransFromText>Home</TransFromText></NavLink></li>
     <li className="hover:text-[#CBFF54]"><NavLink to='/about' className={({isActive})=> isActive? "text-[#CBFF54]":""}><TransFromText>About</TransFromText></NavLink></li>
@@ -58,7 +62,18 @@ const HeaderSection = () => {
         </div>
         <div className="navbar-end flex gap-4">
           <div><FaUserAlt className="text-md text-[#BDED4F]" /></div>
-          <Link to='/auth/login' className="linktext bg-[#BDED4F] px-2 py-2 text-black rounded-sm"><TransFromText>Login</TransFromText></Link>
+          <h2>
+            {user && user.email}
+          </h2>
+
+          {
+            user && user?.email ? 
+
+            <Link to='/'   onClick={logOut}  className="linktext bg-[#BDED4F] px-2 py-2 text-black rounded-sm"><TransFromText>Logout</TransFromText></Link>
+            :
+            <Link to='/auth/login'  className="linktext bg-[#BDED4F] px-2 py-2 text-black rounded-sm"><TransFromText>Login</TransFromText></Link>
+
+          }
         </div>
       </div>
     </div>

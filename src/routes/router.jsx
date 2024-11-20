@@ -10,6 +10,7 @@ import DetailPage from "../pages/DetailPage";
 import AuthPage from "../pages/AuthPage";
 import LoginPage from "../pages/LoginPage";
 import RegistrationPage from "../pages/RegistrationPage";
+import PrivateRoute from "./PrivateRoute";
 
 const router = createBrowserRouter([
     {
@@ -39,7 +40,7 @@ const router = createBrowserRouter([
         ],
     },{
         path:'/detail/:detID',
-        element: <DetailPage />
+        element: <PrivateRoute><DetailPage /></PrivateRoute>
     },{
         path:'/auth',
         element:<AuthPage />,

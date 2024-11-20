@@ -37,3 +37,6 @@ body {
     pointer-events: none;
 }
   
+.divider:before, .divider:after {
+    background-color: white !important;
+}
