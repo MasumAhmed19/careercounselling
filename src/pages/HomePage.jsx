@@ -3,6 +3,7 @@ import HeroBanner from "../components/HeroBanner";
 import FooterSection from "../components/FooterSection"
 import HowItWorksSection from "../sections/HowItWorksSection";
 import FAQSections from "../components/FAQSections";
+import TeamSection from "../components/TeamSection";
 
 
 const HomePage = () => {
@@ -21,6 +22,9 @@ const HomePage = () => {
 
         {/* faq section */}
         <FAQSections />
+
+        {/* Team Member */}
+        <TeamSection/>
 
         {/* Footer */}
         <FooterSection />

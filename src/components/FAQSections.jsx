@@ -44,7 +44,7 @@ const FAQSections = () => {
                         >
                             <input type="radio" name="my-accordion-3" />
                             <div
-                                className={`collapse-title text-xl font-medium ${
+                                className={`collapse-title text-xl font-semibold ${
                                     activeIndex === index ? "text-[#CBFF54]" : "text-white"
                                 }`}
                             >
