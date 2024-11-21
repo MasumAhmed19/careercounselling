@@ -27,6 +27,10 @@ body {
     @apply text-base text-[#b2bbb7]
 }
 
+.dt2 {
+    @apply text-base text-[#dfdfdf]
+}
+
 .g1 {
     /* position: absolute; */
     top: 0;

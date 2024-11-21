@@ -15,7 +15,7 @@ const HowItWorksSection = () => {
                 <div className="lg:w-5/6 mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 mt-[50px]">
                     <div className="backdrop-blur-md border-2 hover:border-[#CBFF54] duration-500 bg-[#223b39c0] border-[#374E4B] rounded-md p-8 text-white flex flex-col items-start gap-2 m-4 md:m-1">
                         <div>
-                            <img src="https://cdn.prod.website-files.com/6682c9c59628a8235eba2fe6/66f5c2f5b9e1d0003d2c1d4a_doodad.png" alt="" />
+                            <img src="https://i.ibb.co.com/JC3wnbR/img1.png" alt="" />
                         </div>
                         <h5 className="linktext text-[#CBFF54]">ONLINE</h5>
                         <h2 className="text-xl font-semibold">Schedule a session from anywhere</h2>
@@ -39,7 +39,7 @@ const HowItWorksSection = () => {
 
                     <div className="backdrop-blur-md border-2 hover:border-[#CBFF54] duration-500 bg-[#223b39c0] border-[#374E4B] rounded-md p-8 text-white flex flex-col items-start gap-2 m-4 md:m-1">
                         <div>
-                            <img src="https://cdn.prod.website-files.com/6682c9c59628a8235eba2fe6/66f5c2f5b9e1d0003d2c1d4a_doodad.png" alt="" />
+                            <img src="https://i.ibb.co.com/nm3XdhX/img2.png" alt="" />
                         </div>
                         <h5 className="linktext text-[#CBFF54]">OFFLINE</h5>
                         <h2 className="text-xl font-semibold">Meet face-to-face with our counselors
@@ -61,7 +61,7 @@ const HowItWorksSection = () => {
 
                     <div className="backdrop-blur-md border-2 hover:border-[#CBFF54] duration-500 bg-[#223b39c0] border-[#374E4B] rounded-md p-8 text-white flex flex-col items-start gap-2 m-4 md:m-1">
                         <div>
-                            <img src="https://cdn.prod.website-files.com/6682c9c59628a8235eba2fe6/66f5c2f5b9e1d0003d2c1d4a_doodad.png" alt="" />
+                            <img src="https://i.ibb.co.com/V9gmYBN/img3.png" alt="" />
                         </div>
                         <h5 className="linktext text-[#CBFF54]">GROUP</h5>
                         <h2 className="text-xl font-semibold">Collaborate and grow with peers</h2>
