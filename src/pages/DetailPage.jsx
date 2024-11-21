@@ -8,9 +8,11 @@ import { SlCalender } from "react-icons/sl";
 import { FaRegClock } from "react-icons/fa";
 
 const DetailPage = () => {
-  const { serviceData } = useContext(AuthContext);
+  const { serviceData, user } = useContext(AuthContext);
   const { detID } = useParams();
   const [temp, setTemp] = useState([]);
+  const [comments, setComments] = useState([]); // State for comments
+  const [newComment, setNewComment] = useState(""); // State for new comment input
 
   useEffect(() => {
     if (Array.isArray(serviceData)) {
@@ -19,6 +21,20 @@ const DetailPage = () => {
   }, [detID, serviceData]);
 
   const service = temp[0];
+
+  // Handle adding a new comment
+  const handleComment = () => {
+    if (newComment.trim() === "") return; // Prevent empty comments
+
+    const commentObj = {
+      user: user?.displayName || "Anonymous",
+      text: newComment,
+      date: new Date().toLocaleString(),
+    };
+
+    setComments((prevComments) => [...prevComments, commentObj]);
+    setNewComment(""); // Clear the textarea
+  };
 
   return (
     <div className="bg-[#17312F] min-h-screen">
@@ -72,28 +88,65 @@ const DetailPage = () => {
                   {service.longDes}
                 </p>
 
-                <NavLink to={`/service/${service.category}`} >
+                <NavLink to={`/service/${service.category}`}>
                   <ButtonHover>Back to category</ButtonHover>
                 </NavLink>
+              </div>
+
+              {/* Comment Section */}
+              <div className="mt-10 flex flex-col gap-5">
+                <hr />
+                <p className="dt1">Leave a Reply</p>
+                <textarea
+                  name="comment"
+                  value={newComment}
+                  onChange={(e) => setNewComment(e.target.value)}
+                  className="textarea focus:border-[#CBFF54] border-2 bg-transparent border-[#374E4B]"
+                  placeholder="Write your comment here..."
+                ></textarea>
+                <div onClick={handleComment} className="flex items-start">
+                  <ButtonHover>Post</ButtonHover>
+                </div>
+
+                {/* Display Comments */}
+                <div className="mt-8">
+                  <h3 className="text-lg font-semibold">Comments:</h3>
+                  {comments.length > 0 ? (
+                    <ul className="mt-4 space-y-4">
+                      {comments.map((comment, index) => (
+                        <div key={index} className="flex gap-2 items-start w-full">
+                          <img src={user.photoURL} className="w-[30px] h-[30px] object-cover rounded-full" alt="" />
+                          <li className="border-b border-[#374E4B] w-full pb-4">
+                          <p className="text-sm text-[#CBFF54] font-medium">
+                            {comment.user}{" "}
+                            <span className="text-xs text-white/70">
+                              ({comment.date})
+                            </span>
+                          </p>
+                          <p className="text-white/90 mt-1">{comment.text}</p>
+                        </li>
+
+                        </div>
+                        
+                      ))}
+                    </ul>
+                  ) : (
+                    <p className="text-white/70">No comments yet. Be the first to comment!</p>
+                  )}
+                </div>
               </div>
             </div>
 
             {/* Rightbar */}
             <div className="lg:col-span-4">
-              <div className="flex flex-col gap-6 mt-5 lg:mt-28">
+              <div className="flex flex-col gap-6 mt-5 lg:mt-28 lg:sticky top-5">
                 {/* Price Card */}
                 <div className="bg-[#223B39] p-5 rounded-lg border-2 border-[#374E4B] hover:border-[#CBFF54] transition-colors duration-300">
                   <div className="flex flex-row justify-between gap-4">
                     <div className="space-y-2 text-sm md:text-base uppercase text-[12px] md:text-[14px] tracking-wider">
-                      <p>
-                        Date: {service.date}
-                      </p>
-                      <p>
-                        Time: {service.time}
-                      </p>
-                      <p>
-                        Duration:{service.duration}
-                      </p>
+                      <p>Date: {service.date}</p>
+                      <p>Time: {service.time}</p>
+                      <p>Duration: {service.duration}</p>
                     </div>
                     <span className="text-xl linktext uppercase md:text-2xl font-semibold tracking-wide">
                       {service.pricing}
