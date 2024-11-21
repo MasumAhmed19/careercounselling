@@ -40,3 +40,12 @@ body {
 .divider:before, .divider:after {
     background-color: white !important;
 }
+
+/* Custom color for inactive dots */
+.swiper-pagination-bullet {
+    @apply bg-[#cbd5e1] opacity-100
+}
+
+.swiper-pagination-bullet-active {
+    @apply bg-[#a6d81d]
+}

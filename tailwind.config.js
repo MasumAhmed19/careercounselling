@@ -5,7 +5,12 @@ export default {
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+        'dot-inactive': '#cbd5e1', // Inactive dot color
+        'dot-active': '#1d4ed8', // Active dot color
+    },
+    },
   },
   plugins: [
     // eslint-disable-next-line no-undef

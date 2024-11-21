@@ -34,7 +34,7 @@ const HeroBanner = () => {
             {/* slider */}
           <div className="order-1 md:order-2 ">
             <ImgSlider />
-            <img className="w-2/3  mx-auto" src="https://i.ibb.co.com/9bLQM7f/sliderimg1.png" alt="" />
+            {/* <img className="w-2/3  mx-auto" src="https://i.ibb.co.com/9bLQM7f/sliderimg1.png" alt="" /> */}
           </div>
         </div>
       </div>

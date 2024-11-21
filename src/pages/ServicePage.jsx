@@ -4,6 +4,7 @@ import HeaderSection from "../components/HeaderSection";
 import { AuthContext } from "../provider/AuthProvider";
 import { useContext } from "react";
 import { NavLink } from "react-router-dom";
+import FooterSection from "../components/FooterSection";
 
 const ServicePage = () => {
   const { serviceData } = useContext(AuthContext);
@@ -86,6 +87,8 @@ const ServicePage = () => {
           </div>
         </div>
       </section>
+
+      <FooterSection/>
     </div>
   );
 };
