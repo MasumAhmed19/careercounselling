@@ -1,11 +1,21 @@
-# React + Vite
+# Career Counseling Website
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+- [Github Repo](https://github.com/programming-hero-web-course1/b10-a9-authentication-MasumAhmed19)  
+- [Live Link](https://career-counseling-mas.netlify.app/)
 
-Currently, two official plugins are available:
+## Description
+This project is a Career Counseling Website developed as part of an assignment. It provides users with personalized career advice and resources to help them make informed decisions about their professional future. The platform features user authentication, service listings, dynamic routing, and protected routes for private pages.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+The design of this website is inspired by [The Resonance Studio](https://www.theresonance.studio/).
+
+## Technology Used
+```bash
+  > React  
+  > JavaScript (ES6+)  
+  > Tailwind CSS  
+  > DaisyUI  
+  > React Router DOM  
+  > Firebase (for authentication)  
+  > React Helmet-Async  
 
 
-inspired design from: https://www.theresonance.studio/
