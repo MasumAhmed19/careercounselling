@@ -4,6 +4,8 @@ import CustomNavLink from "../components/CustomNavLink";
 import { useContext, useState } from "react";
 import { AuthContext } from "../provider/AuthProvider";
 import { FcGoogle } from "react-icons/fc";
+import { FaEye, FaEyeSlash, FaRegEyeSlash } from "react-icons/fa";
+import TransFromText from "../components/TransFromText";
 
 const LoginPage = () => {
 
@@ -12,6 +14,8 @@ const LoginPage = () => {
   const navigate = useNavigate()
 
   const [error, setError] = useState({})
+
+  const [pass, setPass] = useState(false)
 
   const handleSubmit = (e)=>{
     e.preventDefault();
@@ -23,16 +27,19 @@ const LoginPage = () => {
     .then((res)=>{
       setUser(res.user)
       navigate(location?.state ? location.state : "/")
-      // alert notification
+      alert('huuray')
     })
     .catch((err) => {
-      const errorCode = err.code;
-      const errorMessage = err.message;
       setError({...error, login:err.code})
-      // alert notification
+      alert(err)
     });
 
     console.log(email, password)
+  }
+
+  const toggleEye = ()=>{
+    setPass(!pass)
+    console.log(pass)
   }
 
 
@@ -64,14 +71,23 @@ const LoginPage = () => {
               <label className="label">
                 <span className="label-text text-white">Password</span>
               </label>
-              <input
-                name="password"
-                type="password"
-                placeholder="password"
-                className="input input-bordered"
-                required
-              />
+              <div className="flex relative">
+                <input
+                  name="password"
+                  type={`${pass?"text":"password"}`}
+                  placeholder="password"
+                  className="input w-full input-bordered absolute"
+                  required
+                />
+                <span onClick={toggleEye} className="absolute right-3 top-4 cursor-pointer" >
+                  {
+                    pass ?  <FaEyeSlash />:<FaEye />
+                  }
+                  
+                </span>
+              </div>
               
+ 
             </div>
             {error.login && 
             <div className="flex items-start justify-start">
@@ -100,10 +116,15 @@ const LoginPage = () => {
           </form>
 
           <div className="divider text-white border-white linktext px-8">OR</div>
-            <div className="form-control mt-6 px-8 flex gap-2" onClick={loginGoogle}>
-              <ButtonHover ><div className="flex items-center gap-3"> <FcGoogle className="text-xl" />
-              Continue with Google</div> </ButtonHover>
+          <div
+            className="form-control mt-6 px-8 flex gap-2"
+            onClick={loginGoogle}
+          >
+            <div className="flex items-center justify-center text-center gap-3 h-10 rounded-md px-5 text-neutral-950 bg-[#CBFF54] linktext">
+              <FcGoogle className="text-xl" />
+              <TransFromText>Continue with Google</TransFromText>
             </div>
+          </div>
         </div>
       </div>
       <h2 className="text-4xl md:text-6xl text-white md:w-2/3 text-center mx-auto"></h2>

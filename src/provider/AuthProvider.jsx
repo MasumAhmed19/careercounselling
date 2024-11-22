@@ -1,61 +1,82 @@
 import { createContext, useEffect, useState } from "react";
 import app from "../firebase/firebase.config";
-import { createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut, GoogleAuthProvider, updateProfile } from "firebase/auth";
+import {
+    createUserWithEmailAndPassword,
+    getAuth,
+    onAuthStateChanged,
+    signInWithEmailAndPassword,
+    signInWithPopup,
+    signOut,
+    GoogleAuthProvider,
+    updateProfile,
+} from "firebase/auth";
 
-
-export const AuthContext = createContext()
+export const AuthContext = createContext();
 const auth = getAuth(app);
 
+const AuthProvider = ({ children }) => {
+    const [user, setUser] = useState(null);
+    const [loading, setLoading] = useState(true);
 
-const AuthProvider = ({children}) => {
-    const [user, setUser] = useState(null)
-    const [loading, setLoading] = useState(true)
-
-    const createNewUser = (email, password)=>{
-        setLoading(true)
+    const createNewUser = (email, password) => {
+        setLoading(true);
         return createUserWithEmailAndPassword(auth, email, password)
-    }
 
-    const userLogin = (email, password)=>{
-        setLoading(true)
+    };
+
+    const userLogin = (email, password) => {
+        setLoading(true);
         return signInWithEmailAndPassword(auth, email, password)
-    }
+    };
 
     const loginGoogle = () => {
-        setLoading(true)
+        setLoading(true);
         const provider = new GoogleAuthProvider();
-        signInWithPopup(auth, provider)
-          .then((result) => {
-            const user = result.user;
-            setUser(user);
-            alert("Google login successful:", user);
-          })
-          .catch((error) => {
-            const errorCode = error.code;
-            const errorMessage = error.message;
-            alert("Google login failed:", errorCode, errorMessage);
-          });
-      };
-      
-      const updateUserProfile = (updatedData)=>{
-        return updateProfile(auth.currentUser, updatedData)
-      }
+        return signInWithPopup(auth, provider)
+            .then((result) => {
+                const user = result.user;
+                setUser(user);
+                alert("Google login successful!");
+            })
+            .catch((error) => {
+                alert(`Google login failed: ${error.message}`);
+            })
+    };
 
-    console.log(user)
+    const updateUserProfile = (updatedData) => {
+        return updateProfile(auth.currentUser, updatedData);
+    };
 
-
-    const [serviceData, setServiceData] = useState(null)
+    const [serviceData, setServiceData] = useState(null);
 
     useEffect(() => {
-        fetch('/careerCounselingData.json')
-            .then(res => res.json())
-            .then(data => setServiceData(data))
+        fetch("/careerCounselingData.json")
+            .then((res) => {
+                // if (!res.ok) throw new Error("Failed to load data");
+                return res.json();
+            })
+            .then((data) => setServiceData(data))
+            .catch((error) => {
+                alert("Failed to fetch service data");
+                console.error(error);
+            });
     }, []);
 
-    const logOut = ()=>{
-        setLoading(true)
+    const logOut = () => {
+        setLoading(true);
         return signOut(auth)
-    }
+    };
+
+    useEffect(() => {
+        const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
+            setUser(currentUser);
+            setLoading(false);
+        });
+
+        return () => {
+            unsubscribe();
+        };
+    }, []);
 
     const authData = {
         user,
@@ -67,20 +88,7 @@ const AuthProvider = ({children}) => {
         loginGoogle,
         loading,
         updateUserProfile,
-
-    }
-
-    // observer
-    useEffect(()=>{
-        const unsubscribe =  onAuthStateChanged(auth, currentUser=>{
-            setUser(currentUser)
-            setLoading(false)
-        });
-
-        return ()=>{
-            unsubscribe()
-        }
-    }, []) 
+    };
 
     return (
         <AuthContext.Provider value={authData}>

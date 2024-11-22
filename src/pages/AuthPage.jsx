@@ -1,5 +1,4 @@
 import { Outlet } from "react-router-dom";
-import ButtonHover from "../components/ButtonHover";
 import HeaderSection from "../components/HeaderSection";
 
 const AuthPage = () => {
@@ -7,7 +6,7 @@ const AuthPage = () => {
     <div>
       <HeaderSection />
       <div
-        className="relative min-h-screen flex items-center justify-center bg-cover bg-center bg-no-repeat"
+        className="relative min-h-screen flex items-center justify-center bg-cover bg-center bg-no-repeat py-[100px]"
         style={{
           backgroundImage: `url(https://i.ibb.co.com/QkdtCWQ/herobg3.jpg)`,
         }}
