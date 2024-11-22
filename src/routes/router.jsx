@@ -11,6 +11,7 @@ import AuthPage from "../pages/AuthPage";
 import LoginPage from "../pages/LoginPage";
 import RegistrationPage from "../pages/RegistrationPage";
 import PrivateRoute from "./PrivateRoute";
+import ProfilePage from "../pages/ProfilePage";
 
 const router = createBrowserRouter([
     {
@@ -57,6 +58,9 @@ const router = createBrowserRouter([
     {
         path: '/contact',
         element: <ContactPage />,
+    },{
+        path:'/user-profile',
+        element: <PrivateRoute><ProfilePage /></PrivateRoute>
     },
     {
         path: '*',

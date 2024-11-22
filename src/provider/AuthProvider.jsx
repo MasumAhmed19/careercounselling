@@ -47,6 +47,18 @@ const AuthProvider = ({ children }) => {
         return updateProfile(auth.currentUser, updatedData);
     };
 
+    // update data
+    const updateUserProfileData = (updatedData) => {
+
+        return updateProfile(auth.currentUser, updatedData)
+        .then(() => {
+            setUser((prevUser) => ({
+                ...prevUser,
+                ...updatedData,
+            }));
+        });
+    };
+
     const [serviceData, setServiceData] = useState(null);
 
     useEffect(() => {
@@ -88,6 +100,7 @@ const AuthProvider = ({ children }) => {
         loginGoogle,
         loading,
         updateUserProfile,
+        updateUserProfileData,
     };
 
     return (

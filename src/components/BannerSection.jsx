@@ -14,7 +14,7 @@ const BannerSection = ({ t }) => {
                 <div className="text-center flex items-center justify-center">
                     <p className="linktext text-center text-white duration-300 ease-in backdrop-blur-sm px-2 py-3 rounded-md ">Unlock Your Career Potential</p>
                 </div>
-                <h2 className="text-4xl md:text-6xl text-white md:w-2/3 text-center mx-auto">{t}</h2>
+                <h2 className="text-4xl md:text-6xl text-white  text-center mx-auto">{t}</h2>
             </div>
         </div>
     );

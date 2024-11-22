@@ -37,22 +37,32 @@ const HeaderSection = () => {
           <TransFromText>Service</TransFromText>
         </NavLink>
       </li>
-      <li className="hover:text-[#CBFF54]">
+      {/* <li className="hover:text-[#CBFF54]">
         <NavLink
           to="/blog"
           className={({ isActive }) => (isActive ? "text-[#CBFF54]" : "")}
         >
           <TransFromText>Blog</TransFromText>
         </NavLink>
-      </li>
-      <li className="hover:text-[#CBFF54]">
+      </li> */}
+      {/* <li className="hover:text-[#CBFF54]">
         <NavLink
           to="/contact"
           className={({ isActive }) => (isActive ? "text-[#CBFF54]" : "")}
         >
           <TransFromText>Contact</TransFromText>
         </NavLink>
-      </li>
+      </li> */}
+      {
+            user && <li className="hover:text-[#CBFF54]">
+                        <NavLink
+                          to="/user-profile"
+                          className={({ isActive }) => (isActive ? "text-[#CBFF54]" : "")}
+                        >
+                          <TransFromText>User Profile</TransFromText>
+                        </NavLink>
+                      </li>
+        }
     </>
   );
 
@@ -109,7 +119,7 @@ const HeaderSection = () => {
             
 
             <div
-              className="tooltip hover:tooltip-open tooltip-right" data-tip={user?.displayName}
+              className="tooltip hover:tooltip-open tooltip-left" data-tip={user?.displayName}
               
             >
               {user && user?.email ? (

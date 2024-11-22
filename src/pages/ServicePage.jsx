@@ -64,7 +64,7 @@ const ServicePage = () => {
   return (
     <div>
       <HeaderSection />
-      <BannerSection t="Professional Guidance, Personal Growth" />
+      <BannerSection t="Our Services" />
 
       {/* Service Section */}
       <section className="bg-[#17312F] py-[100px]">
