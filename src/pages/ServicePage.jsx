@@ -5,18 +5,20 @@ import { AuthContext } from "../provider/AuthProvider";
 import { useContext } from "react";
 import { NavLink } from "react-router-dom";
 import FooterSection from "../components/FooterSection";
+import { Helmet } from "react-helmet-async";
 
 const ServicePage = () => {
+  
   const { serviceData } = useContext(AuthContext);
   console.log(serviceData);
-
-
+  
+  
   const link = <>
      <NavLink
                 to="/service/online"
                 className={({ isActive }) =>
-                    `py-4 px-5 rounded-sm join-item flex items-center gap-5 ${
-                        isActive ? "bg-[#405753]" : ""
+                  `py-4 px-5 rounded-sm join-item flex items-center gap-5 ${
+                    isActive ? "bg-[#405753]" : ""
                     }`
                 }
             >
@@ -63,6 +65,8 @@ const ServicePage = () => {
 
   return (
     <div>
+  <Helmet><title>Service - Career Counseling</title></Helmet>
+
       <HeaderSection />
       <BannerSection t="Our Services" />
 

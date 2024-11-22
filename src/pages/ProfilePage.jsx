@@ -5,64 +5,67 @@ import HeaderSection from "../components/HeaderSection";
 import { AuthContext } from "../provider/AuthProvider";
 import ButtonHover from "../components/ButtonHover";
 import TransFromText from "../components/TransFromText";
+import { Helmet } from "react-helmet-async";
 
 const ProfilePage = () => {
+
   const { user, updateUserProfileData } = useContext(AuthContext);
   const [formData, setFormData] = useState({
-    name: "",
-    photoURL: ""
-  });
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState({ update: "" });
-
-  // Update form data when user data changes
-  useEffect(() => {
-    if (user) {
-      setFormData({
-        name: user.displayName || "",
-        photoURL: user.photoURL || ""
-      });
-    }
-  }, [user]);
-
-  const handleUpdateProfile = (e) => {
-    e.preventDefault();
+      name: "",
+      photoURL: ""
+    });
+    const [loading, setLoading] = useState(false);
+    const [error, setError] = useState({ update: "" });
     
-    // Don't update if no changes were made
-    if (formData.name === user?.displayName && formData.photoURL === user?.photoURL) {
-      return;
+    // Update form data when user data changes
+    useEffect(() => {
+        if (user) {
+            setFormData({
+                name: user.displayName || "",
+                photoURL: user.photoURL || ""
+            });
+        }
+    }, [user]);
+    
+    const handleUpdateProfile = (e) => {
+        e.preventDefault();
+        
+        // change er dorkar nai
+        if (formData.name === user?.displayName && formData.photoURL === user?.photoURL) {
+            return;
     }
 
     setLoading(true);
     setError({ update: "" });
-
+    
     const updates = {
-      displayName: formData.name,
-      photoURL: formData.photoURL
+        displayName: formData.name,
+        photoURL: formData.photoURL
     };
-
+    
     updateUserProfileData(updates)
-      .then(() => {
+    .then(() => {
         alert("Profile updated successfully!");
-      })
-      .catch((error) => {
+    })
+    .catch((error) => {
         setError({ update: error.message });
       })
       .finally(() => {
-        setLoading(false);
-      });
-  };
-
-  const handleInputChange = (e) => {
-    const { name, value } = e.target;
-    setFormData(prev => ({
+          setLoading(false);
+        });
+    };
+    
+    const handleInputChange = (e) => {
+        const { name, value } = e.target;
+        setFormData(prev => ({
       ...prev,
       [name]: value
     }));
-  };
+};
 
   return (
     <div>
+<Helmet><title>Profile - Career Counseling</title></Helmet>
       <HeaderSection />
       <BannerSection t="User Profile" />
       <section className="bg-[#17312F] py-[100px]">

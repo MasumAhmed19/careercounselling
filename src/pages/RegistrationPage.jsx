@@ -6,8 +6,11 @@ import { useNavigate } from "react-router-dom";
 import TransFromText from "../components/TransFromText";
 import ButtonHover from "../components/ButtonHover";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
+import { Helmet } from "react-helmet-async";
 
 const RegistrationPage = () => {
+
+
   const navigate = useNavigate();
   const { createNewUser, setUser, loginGoogle, updateUserProfile } = useContext(AuthContext);
 
@@ -69,6 +72,7 @@ const RegistrationPage = () => {
 
   return (
     <div className="w-full md:w-1/2 mx-auto z-10 flex flex-col gap-4 m-4">
+      <Helmet><title>Registration - Career Counseling</title></Helmet>
       <div className="text-center flex flex-col justify-center bg-[#20383763] backdrop-blur-md rounded-md md:p-[50px] p-8">
         <div className="flex gap-5 items-center justify-center py-4">
           <CustomNavLink to="/auth/login">Login</CustomNavLink>

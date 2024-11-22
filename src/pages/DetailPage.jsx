@@ -6,38 +6,41 @@ import FooterSection from "../components/FooterSection";
 import ButtonHover from "../components/ButtonHover";
 import { SlCalender } from "react-icons/sl";
 import { FaRegClock } from "react-icons/fa";
+import { Helmet } from "react-helmet-async";
 
 const DetailPage = () => {
+  
   const { serviceData, user } = useContext(AuthContext);
   const { detID } = useParams();
   const [temp, setTemp] = useState([]);
   const [comments, setComments] = useState([]); // State for comments
   const [newComment, setNewComment] = useState(""); // State for new comment input
-
+  
   useEffect(() => {
     if (Array.isArray(serviceData)) {
       setTemp(serviceData.filter((el) => el.id.toString() === detID));
     }
   }, [detID, serviceData]);
-
+  
   const service = temp[0];
-
+  
   // Handle adding a new comment
   const handleComment = () => {
     if (newComment.trim() === "") return; // Prevent empty comments
-
+    
     const commentObj = {
       user: user?.displayName || "Anonymous",
       text: newComment,
       date: new Date().toLocaleString(),
     };
-
+    
     setComments((prevComments) => [...prevComments, commentObj]);
     setNewComment(""); // Clear the textarea
   };
-
+  
   return (
     <div className="bg-[#17312F] min-h-screen">
+      <Helmet><title>Detail - Career Counseling</title></Helmet>
       <HeaderSection />
 
       {service && (

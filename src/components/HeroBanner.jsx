@@ -27,8 +27,9 @@ const HeroBanner = () => {
               Personalized counseling to help you achieve your professional
               dreams.
             </p>
-            <Link></Link>
-            <ButtonHover className="">Get Started Now</ButtonHover>
+            <Link to='/service/online'>
+              <ButtonHover className="">Get Started Now</ButtonHover>
+            </Link>
           </div>
 
             {/* slider */}

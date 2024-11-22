@@ -4,13 +4,17 @@ import FooterSection from "../components/FooterSection"
 import HowItWorksSection from "../sections/HowItWorksSection";
 import FAQSections from "../components/FAQSections";
 import TeamSection from "../components/TeamSection";
+import { Helmet } from "react-helmet-async";
 
 
 const HomePage = () => {
-  return (
 
+  
+  return (
+    
     <>
       <div>
+    <Helmet><title>Home - Career Counseling</title></Helmet>
 
         <HeaderSection />
 

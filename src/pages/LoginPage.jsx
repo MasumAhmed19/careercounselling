@@ -6,20 +6,22 @@ import { AuthContext } from "../provider/AuthProvider";
 import { FcGoogle } from "react-icons/fc";
 import { FaEye, FaEyeSlash, FaRegEyeSlash } from "react-icons/fa";
 import TransFromText from "../components/TransFromText";
+import { Helmet } from "react-helmet-async";
 
 const LoginPage = () => {
-
+  
+  
   const {user, setUser, userLogin, loginGoogle} = useContext(AuthContext)
   const location = useLocation()
   const navigate = useNavigate()
-
+  
   const [error, setError] = useState({})
-
+  
   const [pass, setPass] = useState(false)
-
+  
   const handleSubmit = (e)=>{
     e.preventDefault();
-
+    
     const form = e.target
     const email =  form.email.value
     const password = form.password.value
@@ -33,18 +35,19 @@ const LoginPage = () => {
       setError({...error, login:err.code})
       alert(err)
     });
-
+    
     console.log(email, password)
   }
-
+  
   const toggleEye = ()=>{
     setPass(!pass)
     console.log(pass)
   }
-
-
+  
+  
   return (
     <div className="w-full md:w-1/2 mx-auto z-10 flex flex-col gap-4 m-4">
+      <Helmet><title>Login - Career Counseling</title></Helmet>
       <div className=" text-center flex flex-col  justify-center bg-[#20383763] backdrop-blur-sm rounded-md md:p-[50px] p-8 ">
         <div className="flex gap-5 items-center justify-center py-4">
         <CustomNavLink to='/auth/login'>Login</CustomNavLink>
