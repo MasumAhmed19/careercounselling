@@ -1,6 +1,6 @@
 # Career Counseling Website
 
-- [Github Repo](https://github.com/programming-hero-web-course1/b10-a9-authentication-MasumAhmed19)  
+- [Github Repo (phero)](https://github.com/programming-hero-web-course1/b10-a9-authentication-MasumAhmed19)  
 - [Live Link](https://career-counseling-mas.netlify.app/)
 
 ## Description
